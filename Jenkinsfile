@@ -11,12 +11,12 @@ node {
     sshagent(['ubuntu-host']) {
       sh "scp -o StrictHostKeyChecking=no pod-v1.yaml jake@192.168.6.44:/k8s/dev/"
       try{
-          sh "ssh jake@192.168.6.44 kubectl apply -f ."
+          sh "ssh jake@192.168.6.44 microk8s kubectl apply -f ."
       }
 
       catch(error){
           echo "Welp... those didnt exist yet"
-          sh "ssh jake@192.168.6.44 kubectl create -f ."
+          sh "ssh jake@192.168.6.44 microk8s kubectl create -f ."
       }
     }
 
