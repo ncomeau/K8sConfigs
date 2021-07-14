@@ -20,6 +20,40 @@ node {
     // sh 'python3 /var/jenkins_home/app/cbctl_validate_helper.py ${REPO}_${IMAGE}_validate.json > cbctl_policy_violations.txt'
 
     }
+
+    stage('Slack Post - Validate k8s-object') {
+
+          //SLACK_CBCTL = sh 'cat slack_block.txt'
+          //echo "Message to send in slack_block: ${SLACK_CBCTL}"
+          blocks_fail = [
+                  [
+                   "type": "section",
+                   "text": [
+                          "type": "mrkdwn",
+                          "text": "*K8s config security check details:* - <https://defense-prod05.conferdeploy.net/kubernetes/repos| here > \n*${env.JOB_NAME}: *-#${env.BUILD_NUMBER} - <${env.BUILD_URL}| here > "
+                          ]
+                  ]
+
+
+           ]
+
+          if(violations == false) {
+            slackSend color: "good", message: "No violations! Woohoo! [Jenkins] '${env.JOB_NAME}' ${env.BUILD_URL}"
+
+          }
+
+          if(violations == true) {
+            slackSend(channel: "#build-alerts", blocks: blocks_fail)
+            slackUploadFile filePath: "deployment_manifest_validate.json", initialComment: ""
+            echo "Violations occured. results of cbctl validate can be found in deployment_manifest_validate.json"
+
+
+          }
+
+
+        }
+
+
   }
 
 
