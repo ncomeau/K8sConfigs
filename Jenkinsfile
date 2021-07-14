@@ -6,6 +6,22 @@ node {
       checkout scm
   }
 
+  stage('Validate K8s-object') {
+  try {
+    echo "Validate stage... Starting validate test for deployment.yaml."
+    sh '/var/jenkins_home/app/cbctl k8s-object validate deployment.yaml -o json > deployment_manifest_validate.json'
+    // sh 'python3 /var/jenkins_home/app/cbctl_validate_helper.py ${REPO}_${IMAGE}_validate.json > cbctl_policy_no_violations.txt'
+
+  }
+
+  catch (err) {
+    violations = true
+    echo "Build detected cbctl violations. Review Cbctl scan results."
+    // sh 'python3 /var/jenkins_home/app/cbctl_validate_helper.py ${REPO}_${IMAGE}_validate.json > cbctl_policy_violations.txt'
+
+    }
+  }
+
 
   stage('Deployment test') {
     sshagent(['ubuntu-host']) {
