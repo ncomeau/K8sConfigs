@@ -25,7 +25,7 @@ node {
       }
 
       stage('Cleanup') {
-        sh "ssh jake@192.168.6.44 microk8s kubectl delete pod nodeapp"
+        sh "ssh jake@192.168.6.44 microk8s kubectl delete deployment nodeapp"
         sh "ssh jake@192.168.6.44 microk8s kubectl get all"
 
       }
