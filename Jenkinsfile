@@ -67,7 +67,7 @@ node {
       }
 
       catch(error){
-          echo "Welp... those didnt exist yet"
+          echo "Welp... those didnt exist yet..."
           sh "ssh jake@192.168.6.44 microk8s kubectl create -f /k8s/dev/deployment.yaml && sleep 5"
       }
 
