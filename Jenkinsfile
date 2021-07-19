@@ -61,7 +61,7 @@ node {
 
   stage('Deployment test') {
     sshagent(['ubuntu-host']) {
-      sh "scp -o StrictHostKeyChecking=no deployment.yaml jake@192.168.6.44:/k8s/dev/"
+      sh "scp -o StrictHostKeyChecking=no deployment-v2.yaml jake@192.168.6.44:/k8s/dev/"
       try{
           sh "ssh jake@192.168.6.44 microk8s kubectl apply -f /k8s/dev/deployment-v2.yaml && sleep 5"
       }
