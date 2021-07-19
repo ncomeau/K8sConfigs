@@ -1,5 +1,7 @@
 node {
 
+  violations = false
+
   stage('Get deployment files') {
       /* Cloning the Repository to jenkins-docker Workspace */
       // git branch: 'jake-testing', url: 'https://github.com/JaBarosin/NodeApp.git'
@@ -46,7 +48,7 @@ node {
             slackSend(channel: "#build-alerts", blocks: blocks_fail)
             slackUploadFile filePath: "deployment_manifest_validate.json", initialComment: ""
             echo "Violations occured. results of cbctl validate can be found in deployment_manifest_validate.json"
-
+            error("Failed Deployment due to CB Container policy violations.")
 
           }
 
