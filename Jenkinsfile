@@ -10,8 +10,8 @@ node {
 
   stage('Validate K8s-object') {
   try {
-    echo "Validate stage... Starting validate test for deployment.yaml."
-    sh '/var/jenkins_home/app/cbctl k8s-object validate -f deployment.yaml -o json > deployment_manifest_validate_v2.json'
+    echo "Validate stage... Starting validate test for deployment-v2.yaml."
+    sh '/var/jenkins_home/app/cbctl k8s-object validate -f deployment-v2.yaml -o json > deployment_manifest_validate_v2.json'
     // sh 'python3 /var/jenkins_home/app/cbctl_validate_helper.py ${REPO}_${IMAGE}_validate.json > cbctl_policy_no_violations.txt'
 
   }
