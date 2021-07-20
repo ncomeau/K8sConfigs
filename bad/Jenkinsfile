@@ -2,8 +2,7 @@ node {
 
   violations = false
   def workspace = pwd()
-  sh 'echo "${workspace}"'
-
+  echo "${workspace}"
 
 
   def configPath = '${env.WORKSPACE}' + '/' + 'bad' + '/' + 'deployment.yaml'
@@ -28,7 +27,7 @@ node {
       echo "Validate stage... Starting validate test for deployment.yaml."
 
       sh 'pwd'
-      sh '/var/jenkins_home/app/cbctl k8s-object validate -f '${configPath}' -o json > deployment_manifest_validate.json'
+      sh '/var/jenkins_home/app/cbctl k8s-object validate -f "${configPath}" -o json > deployment_manifest_validate.json'
 
     }
 
