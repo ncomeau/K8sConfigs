@@ -16,7 +16,7 @@ node {
     echo "Validate stage... Starting validate test for deployment.yaml."
 
     sh 'pwd'
-    dir("${workspace}/bad")
+    dir("bad")
     sh 'pwd'
     sh '/var/jenkins_home/app/cbctl k8s-object validate -f deployment.yaml -o json > deployment_manifest_validate.json'
 
@@ -26,7 +26,7 @@ node {
     violations = true
     echo "Build detected cbctl violations. Review Cbctl scan results."
 
-    sh 'mv deployment_manifest_validate.json ${workspace}'
+    sh 'mv deployment_manifest_validate.json ${workspace}/'
     sh 'ls'
     dir("${workspace}")
     sh 'pwd'
