@@ -1,12 +1,12 @@
+
+def configPath = 'bad' + '/' + 'deployment.yaml'
+
+
 node {
 
   violations = false
   def workspace = pwd()
   echo "${workspace}"
-
-
-  def configPath = 'bad' + '/' + 'deployment.yaml'
-
   sh 'echo "should be the configPath: ${configPath}"'
   echo "should be the configPath: ${configPath}"
 
