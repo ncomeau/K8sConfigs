@@ -2,7 +2,7 @@ node {
 
   violations = false
   def workspace = pwd()
-  sh 'echo ${workspace}'
+  sh 'echo "${workspace}"'
 
 
 
