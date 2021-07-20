@@ -87,6 +87,8 @@ node (k8) {
       sh "kubectl get all -n nodeapp"
       sh "kubectl delete service --all -n nodeapp"
       sh "kubectl delete deployment --all -n nodeapp"
+      sh "kubectl drain ${k8}"
+
 
     }
   }
