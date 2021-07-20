@@ -11,7 +11,7 @@ node {
   // Runs cbctl to validate yaml against policy for violations - dump output to json file
   stage('Validate K8s-object') {
   try {
-    echo "Validate stage... Starting validate test for deployment-v2.yaml."
+    echo "Validate stage... Starting validate test for deployment.yaml."
     sh '/var/jenkins_home/app/cbctl k8s-object validate -f deployment.yaml -o json > deployment_manifest_validate.json'
 
   }
