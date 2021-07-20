@@ -5,7 +5,7 @@ node {
   echo "${workspace}"
 
 
-  def configPath = '/' + 'bad' + '/' + 'deployment.yaml'
+  def configPath = 'bad' + '/' + 'deployment.yaml'
 
   sh 'echo "should be the configPath: ${configPath}"'
   echo "should be the configPath: ${configPath}"
@@ -27,7 +27,7 @@ node {
       echo "Validate stage... Starting validate test for deployment.yaml."
 
       sh 'pwd'
-      sh '/var/jenkins_home/app/cbctl k8s-object validate -f "${configPath}" -o json > deployment_manifest_validate.json'
+      sh '/var/jenkins_home/app/cbctl k8s-object validate -f ${configPath} -o json > deployment_manifest_validate.json'
 
     }
 
@@ -35,7 +35,7 @@ node {
       violations = true
       echo "Build detected cbctl violations. Review Cbctl scan results."
 
-      sh 'mv deployment_manifest_validate.json "${workspace}/"'
+      sh 'mv deployment_manifest_validate.json ${workspace}/'
       sh 'pwd'
 
       }
@@ -92,7 +92,7 @@ node (k8) {
               catch(exists2){
                 echo "namespace already exists...moving on"
               }
-                    sh "kubectl apply -f deployment.yaml -n nodeapp --validate=false"
+                    sh "kubectl apply -f ${configPath}/deployment.yaml -n nodeapp --validate=false"
             }
         }
 
