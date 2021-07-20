@@ -2,7 +2,9 @@ node {
 
   violations = false
 
-  def configPath = "${env.WORKSPACE}" + "/" + "bad" + "/" + "deployment.yaml"
+  def configPath = '${env.WORKSPACE}' + '/' + 'bad' + '/' + 'deployment.yaml'
+
+  sh 'echo ${configPath}'
 
 
   // Cloning the Repository to jenkins-docker Workspace
@@ -21,7 +23,7 @@ node {
       echo "Validate stage... Starting validate test for deployment.yaml."
 
       sh 'pwd'
-      sh '/var/jenkins_home/app/cbctl k8s-object validate -f ${configPath} -o json > deployment_manifest_validate.json'
+      sh '/var/jenkins_home/app/cbctl k8s-object validate -f '${configPath}' -o json > deployment_manifest_validate.json'
 
     }
 
