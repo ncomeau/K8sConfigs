@@ -1,4 +1,4 @@
-# K8sConfigs
+# CBC Container Demo artifacts
 This repo has several K8 configuration files and Jenkinsfile examples for demo and testing purposes.
 
 If you dont have a Jenkins demo environment,  follow the steps for setup within the [CBC_Container_CICD_Demo](https://github.com/ncomeau/CBC_Container_CICD_Demo) repo to get started!
