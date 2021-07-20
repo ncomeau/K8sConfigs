@@ -6,7 +6,7 @@ node {
   def testing = '${env.WORKSPACE}'
   sh 'echo ${testing}'
 
-  def configPath = '${workspace}' + '/' + 'bad' + '/' + 'deployment.yaml'
+  def configPath = '$WORKSPACE' + '/' + 'bad' + '/' + 'deployment.yaml'
 
   sh 'echo "should be the configPath: ${configPath}"'
   echo "should be the configPath: ${configPath}"
