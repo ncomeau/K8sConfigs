@@ -2,6 +2,9 @@ node {
 
   violations = false
 
+  def testing = '${env.WORKSPACE}'
+  sh 'echo ${testing}'
+
   def configPath = '${env.WORKSPACE}' + '/' + 'bad' + '/' + 'deployment.yaml'
 
   sh 'echo ${configPath}'
