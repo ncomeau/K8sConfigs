@@ -14,7 +14,7 @@ node {
   // Runs cbctl to validate yaml against policy for violations - dump output to json file
   stage('Validate K8s-object') {
 
-    def configPath = "${env.WORKSPACE}" + "/" + "bad" + "/" + "deployment.yaml"
+    // def configPath = "${env.WORKSPACE}" + "/" + "bad" + "/" + "deployment.yaml"
     echo '${configPath}'
 
     try {
