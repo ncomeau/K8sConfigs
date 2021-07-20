@@ -86,7 +86,7 @@ node (k8) {
               catch(exists2){
                 echo "namespace already exists...moving on"
               }
-                    sh "kubectl apply -f deployment-v2.yaml -n nodeapp --validate=false"
+                    sh "kubectl apply -f deployment.yaml -n nodeapp --validate=false"
             }
         }
 
