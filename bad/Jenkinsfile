@@ -5,7 +5,7 @@ node {
   echo "${workspace}"
 
 
-  def configPath = '${env.WORKSPACE}' + '/' + 'bad' + '/' + 'deployment.yaml'
+  def configPath = '/' + 'bad' + '/' + 'deployment.yaml'
 
   sh 'echo "should be the configPath: ${configPath}"'
   echo "should be the configPath: ${configPath}"
@@ -35,7 +35,7 @@ node {
       violations = true
       echo "Build detected cbctl violations. Review Cbctl scan results."
 
-      sh 'mv deployment_manifest_validate.json ${env.WORKSPACE}/'
+      sh 'mv deployment_manifest_validate.json "${workspace}/""'
       sh 'pwd'
 
       }
