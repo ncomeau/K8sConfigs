@@ -12,7 +12,7 @@ node {
   stage('Validate K8s-object') {
   try {
     echo "Validate stage... Starting validate test for deployment.yaml."
-    sh '/var/jenkins_home/app/cbctl k8s-object validate -f deployment.yaml -o json > deployment_manifest_validate.json'
+    sh '/var/jenkins_home/app/cbctl k8s-object validate -f bad/deployment.yaml -o json > deployment_manifest_validate.json'
 
   }
 
