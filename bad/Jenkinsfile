@@ -35,7 +35,7 @@ node {
       violations = true
       echo "Build detected cbctl violations. Review Cbctl scan results."
 
-      sh 'mv deployment_manifest_validate.json "${workspace}/""'
+      sh 'mv deployment_manifest_validate.json "${workspace}/"'
       sh 'pwd'
 
       }
