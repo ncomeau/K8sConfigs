@@ -7,4 +7,4 @@ If you dont have a Jenkins demo environment,  start at the [CBC_Container_CICD_D
   - This Pipeline and deployment.yaml have a base configuration that violates CB Container policy rules
 
 **Good**
-    - This Pipeline and deployment-v2.yaml are updted with additional configurations to satisfy CB Container policy rules
+  - This Pipeline and deployment-v2.yaml are updted with additional configurations to satisfy CB Container policy rules
