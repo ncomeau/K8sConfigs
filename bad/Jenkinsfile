@@ -71,9 +71,18 @@ node {
 
 // Create kubectl Node & Container template for utilization in deployment process
 def k8 = "jenkins-k8-${UUID.randomUUID().toString()}"
-podTemplate(label: k8, containers: [
-containerTemplate(name: 'kubectl', image: 'lachlanevenson/k8s-kubectl:v1.8.8', command: 'cat', ttyEnabled: true)
-])
+
+podTemplate(
+  label: k8,
+  containers: [
+    containerTemplate(
+      name: 'kubectl',
+      image: 'lachlanevenson/k8s-kubectl:v1.8.8',
+      command: 'cat',
+      ttyEnabled: true)
+  ]
+)
+
 {
 node (k8) {
         // Get Validated Deployment files with no Violations, based on tests run above
