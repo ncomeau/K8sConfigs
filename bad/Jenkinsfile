@@ -2,7 +2,8 @@ node {
 
   violations = false
 
-  def workspace = WORKSPACE
+  def configPath = "${env.WORKSPACE}" + "/" + "bad" + "/" + "deployment.yaml"
+
 
   // Cloning the Repository to jenkins-docker Workspace
   stage('Get Deployment Files') {
@@ -13,7 +14,7 @@ node {
   // Runs cbctl to validate yaml against policy for violations - dump output to json file
   stage('Validate K8s-object') {
 
-    def configPath = "${workspace}" + "/" + "bad" + "/" + "deployment.yaml"
+    def configPath = "${env.WORKSPACE}" + "/" + "bad" + "/" + "deployment.yaml"
     echo '${configPath}'
 
     try {
@@ -28,9 +29,7 @@ node {
       violations = true
       echo "Build detected cbctl violations. Review Cbctl scan results."
 
-      sh 'mv deployment_manifest_validate.json ${workspace}/'
-      sh 'ls'
-      dir("${workspace}")
+      sh 'mv deployment_manifest_validate.json ${env.WORKSPACE}/'
       sh 'pwd'
 
       }
