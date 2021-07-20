@@ -10,8 +10,8 @@ node {
 
   stage('Validate K8s-object') {
   try {
-    echo "Validate stage... Starting validate test for deployment-v2.yaml."
-    sh '/var/jenkins_home/app/cbctl k8s-object validate -f deployment-v2.yaml -o json > deployment_manifest_validate_v2.json'
+    echo "Validate stage... Starting validate test for deployment.yaml."
+    sh '/var/jenkins_home/app/cbctl k8s-object validate -f bad/deployment.yaml -o json > deployment_manifest_validate.json'
     // sh 'python3 /var/jenkins_home/app/cbctl_validate_helper.py ${REPO}_${IMAGE}_validate.json > cbctl_policy_no_violations.txt'
 
   }
@@ -47,7 +47,7 @@ node {
           if(violations == true) {
             slackSend(channel: "#build-alerts", blocks: blocks_fail)
             slackUploadFile filePath: "deployment_manifest_validate.json", initialComment: ""
-            echo "Violations occured. results of cbctl validate can be found in deployment_manifest_validate_v2.json"
+            echo "Violations occured. results of cbctl validate can be found in deployment_manifest_validate.json"
             // error("Failed Deployment due to CB Container policy violations.")
 
           }
@@ -61,14 +61,14 @@ node {
 
   stage('Deployment test') {
     sshagent(['ubuntu-host']) {
-      sh "scp -o StrictHostKeyChecking=no deployment-v2.yaml jake@192.168.6.44:/k8s/dev/"
+      sh "scp -o StrictHostKeyChecking=no bad/deployment.yaml jake@192.168.6.44:/k8s/dev/"
       try{
-          sh "ssh jake@192.168.6.44 microk8s kubectl apply -f /k8s/dev/deployment-v2.yaml && sleep 5"
+          sh "ssh jake@192.168.6.44 microk8s kubectl apply -f /k8s/dev/deployment.yaml && sleep 5"
       }
 
       catch(error){
           echo "Welp... those didnt exist yet..."
-          sh "ssh jake@192.168.6.44 microk8s kubectl create -f /k8s/dev/deployment-v2.yaml && sleep 5"
+          sh "ssh jake@192.168.6.44 microk8s kubectl create -f /k8s/dev/deployment.yaml && sleep 5"
       }
 
       stage('Connection Test') {
