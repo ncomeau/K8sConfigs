@@ -2,8 +2,11 @@ node {
 
   violations = false
   def workspace = pwd()
+  sh 'echo ${workspace}'
 
-  def configPath = '${workspace}' + '/' + 'bad' + '/' + 'deployment.yaml'
+
+
+  def configPath = '${env.WORKSPACE}' + '/' + 'bad' + '/' + 'deployment.yaml'
 
   sh 'echo "should be the configPath: ${configPath}"'
   echo "should be the configPath: ${configPath}"
