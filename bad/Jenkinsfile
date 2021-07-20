@@ -7,7 +7,8 @@ node {
 
   def configPath = '${env.WORKSPACE}' + '/' + 'bad' + '/' + 'deployment.yaml'
 
-  sh 'echo ${configPath}'
+  sh 'echo "should be the configPath: ${configPath}"'
+  echo "should be the configPath: ${configPath}"
 
 
   // Cloning the Repository to jenkins-docker Workspace
