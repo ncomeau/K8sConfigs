@@ -86,7 +86,7 @@ node (k8) {
       sleep 60
       sh "kubectl get all -n nodeapp"
       sh "kubectl delete service --all -n nodeapp"
-      sh "kubectl delete deployment --all -n nodeapp"
+      sh "kubectl delete deployment nodeapp -n nodeapp"
 
     }
   }
