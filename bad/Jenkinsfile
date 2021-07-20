@@ -35,9 +35,6 @@ node {
       violations = true
       echo "Build detected cbctl violations. Review Cbctl scan results."
 
-      sh 'mv deployment_manifest_validate.json ${workspace}/'
-      sh 'pwd'
-
       }
 
     // Post the results to Slack, upon success or failure, of cbctl validation against policy rules
