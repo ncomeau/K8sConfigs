@@ -12,13 +12,13 @@ node {
 
   // Runs cbctl to validate yaml against policy for violations - dump output to json file
   stage('Validate K8s-object') {
+
+    def configPath = "${workspace}" + "/" + "bad" + "/" + "deployment.yaml"
   try {
     echo "Validate stage... Starting validate test for deployment.yaml."
 
     sh 'pwd'
-    dir("bad")
-    sh 'pwd'
-    sh '/var/jenkins_home/app/cbctl k8s-object validate -f deployment.yaml -o json > deployment_manifest_validate.json'
+    sh '/var/jenkins_home/app/cbctl k8s-object validate -f ${configPath} -o json > deployment_manifest_validate.json'
 
   }
 
