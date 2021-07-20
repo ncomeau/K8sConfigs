@@ -15,8 +15,12 @@ node {
 
     sh 'pwd'
     dir("${env.WORKSPACE}/bad")
+    sh 'pwd'
     sh '/var/jenkins_home/app/cbctl k8s-object validate -f deployment.yaml -o json > deployment_manifest_validate.json'
     sh 'mv deployment_manifest_validate.json ${env.WORKSPACE}/'
+    sh 'ls'
+    dir("${env.WORKSPACE}/")
+    sh 'pwd'
   }
 
   catch (err) {
