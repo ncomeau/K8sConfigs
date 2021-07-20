@@ -14,24 +14,25 @@ node {
   stage('Validate K8s-object') {
 
     def configPath = "${workspace}" + "/" + "bad" + "/" + "deployment.yaml"
-  try {
-    echo "Validate stage... Starting validate test for deployment.yaml."
 
-    sh 'pwd'
-    sh '/var/jenkins_home/app/cbctl k8s-object validate -f ${configPath} -o json > deployment_manifest_validate.json'
+    try {
+      echo "Validate stage... Starting validate test for deployment.yaml."
 
-  }
-
-  catch (err) {
-    violations = true
-    echo "Build detected cbctl violations. Review Cbctl scan results."
-
-    sh 'mv deployment_manifest_validate.json ${workspace}/'
-    sh 'ls'
-    dir("${workspace}")
-    sh 'pwd'
+      sh 'pwd'
+      sh '/var/jenkins_home/app/cbctl k8s-object validate -f ${configPath} -o json > deployment_manifest_validate.json'
 
     }
+
+    catch (err) {
+      violations = true
+      echo "Build detected cbctl violations. Review Cbctl scan results."
+
+      sh 'mv deployment_manifest_validate.json ${workspace}/'
+      sh 'ls'
+      dir("${workspace}")
+      sh 'pwd'
+
+      }
 
     // Post the results to Slack, upon success or failure, of cbctl validation against policy rules
     stage('Slack Post - Validate k8s-object') {
