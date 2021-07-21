@@ -93,7 +93,7 @@ node (k8) {
       echo "Navigate to <IP of your ubuntu machine>:5000 on your mac or localhost on your demo vm to see your static site!"
       sleep 10
       
-      sh "kubectl delete all --all -n nodeapp --force"
+      sh "kubectl delete pod static-site -n nodeapp"
       sh "kubectl get all -n nodeapp"
       // sh "kubectl drain ${k8}"
 
