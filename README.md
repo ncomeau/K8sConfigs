@@ -22,14 +22,14 @@ In order to get started, start by setting up your environment by following the [
 
   4. Inside of the pipeline configuration page enter the following
 
-Field | Value
+Pipeline config | Value
 --------------------- | ---------------------
-Pipeline Definition: | ```Pipeline script from SCM```
-SCM: | ```Git```
+Pipeline Definition: | _Pipeline script from SCM_
+SCM: | _Git_
 Repositories - Reposiroty URL: | ```https://github./com/JaBarosin/K8sConfigs.git```
 Credentials: | _none_
 Branches to build - Branch specifier: | ```*/CBC_Container_Demo```
-Repository Browser: | ```(Auto)```
+Repository Browser: | _(Auto)_
 Script Path: | ```bad/Jenkinsfile```
 
   5. Click 'apply' & 'save
@@ -48,4 +48,4 @@ Script Path: | ```bad/Jenkinsfile```
   * View the slack notifications.
   * Curl or navigate to <your-IP-address>:30333 and check to see the container webpage.
   * _Tip_: On your Jenkins host, open a new terminal tab and use the ```watch``` command to monitor microk8s.
-    * Enter command: ```watch microk8s kubectl get all -n nodeapp``` (crtl+c = exit)
+    - Enter command: ```watch microk8s kubectl get all -n nodeapp``` (crtl+c = exit)
