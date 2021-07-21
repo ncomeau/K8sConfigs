@@ -12,6 +12,8 @@ In order to get started, start by setting up your environment by following the [
     * Start with the 'bad' deployment with configurations that violate CB Container Policy rules
     * Finish with the 'good' deployment which is deployed and monitored by CB Container resources
 
+###### Setup for Jenkins
+
   1. Navigate to your Jenkins Dashboard
 
   2. Select ```New Item``` on the upper left-hand side
