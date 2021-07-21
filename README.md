@@ -48,4 +48,4 @@ Script Path: | ```bad/Jenkinsfile```
   * View the slack notifications.
   * Curl or navigate to <your-IP-address>:30333 and check to see the container webpage.
   * _Tip_: On your Jenkins host, open a new terminal tab and use the ```watch``` command to monitor microk8s.
-    - Enter command: ```watch microk8s kubectl get all -n nodeapp``` (crtl+c = exit)
+    - Enter command: ```watch microk8s kubectl get all -n nodeapp``` (crtl+c or cmd+c = exit)
