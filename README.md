@@ -6,7 +6,7 @@ In order to get started, start by setting up your environment by following the [
 
 ## Branches
 
-####_CBC_Container_Demo_
+#### _CBC_Container_Demo_
 
   * Validate and deploy two different k8s configurations to a microk8s cluster
     * Start with the 'bad' deployment with configurations that violate CB Container Policy rules
