@@ -36,16 +36,16 @@ Script Path: | ```bad/Jenkinsfile```
 
   6. Repeat and create a second Pipeline.
 
-  * Create the second Pipeline with a name like "Good-Deployment-Pipeline"
-  * Set the _Script Path_ to ```good/Jenkinsfile```
+    * Create the second Pipeline with a name like "Good-Deployment-Pipeline"
+    * Set the _Script Path_ to ```good/Jenkinsfile```
 
   7. Select ```Build Now``` for the Job set to the _bad_ job first.
 
-  * View the slack notification which confirms the violations, and provides a breakdown into what specific configurations were the offending rules.
+    * View the slack notification which confirms the violations, and provides a breakdown into what specific configurations were the offending rules.
 
   8. Select ```Build Now``` for the Job set to the _good_ job.
 
-  * View the slack notifications.
-  * Curl or navigate to <your-IP-address>:30333 and check to see the container webpage.
-  * _Tip_: On your Jenkins host, open a new terminal tab and use the ```watch``` command to monitor microk8s.
-    - Enter command: ```watch microk8s kubectl get all -n nodeapp``` (crtl+c or cmd+c = exit)
+    * View the slack notifications.
+    * Curl or navigate to <your-IP-address>:30333 and check to see the container webpage.
+    * _Tip_: On your Jenkins host, open a new terminal tab and use the ```watch``` command to monitor microk8s.
+      - Enter command: ```watch microk8s kubectl get all -n nodeapp``` (crtl+c or cmd+c = exit)
