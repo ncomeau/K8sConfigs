@@ -4,12 +4,6 @@ def configPath = 'bad' + '/' + 'deployment.yaml'
 node {
 
   violations = false
-  // def workspace = pwd()
-  // echo "${workspace}"
-  // sh 'echo "should be the configPath: ${configPath}"'
-  // echo "should be the configPath: ${configPath}"
-
-
   // Cloning the Repository to jenkins-docker Workspace
   stage('Get Deployment Files') {
 
