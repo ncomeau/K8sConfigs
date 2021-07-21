@@ -20,15 +20,17 @@ In order to get started, start by setting up your environment by following the [
 
   3. Enter a name for your project (i.e. "Bad-Deployment-Pipeline")--> select ```Pipeline``` --> click 'ok' in the bottom left
 
-  4. Scroll down to the ```Pipeline``` section --> enter the below details
+  4. Inside of the pipeline configuration page enter the following
 
-  * Pipeline Definition:    ```Pipeline script from SCM```
-  * SCM:    ```Git```
-  * Repositories - Reposiroty URL:    ```https://github./com/JaBarosin/K8sConfigs.git```
-  * Credentials: _none_
-  * Branches to build - Branch specifier:     ```*/CBC_Container_Demo```
-  * Repository Browser:     ```(Auto)```
-  * Script Path:    ```bad/Jenkinsfile```
+Field | Value
+--------------------- | ---------------------
+Pipeline Definition: | ```Pipeline script from SCM```
+SCM: | ```Git```
+Repositories - Reposiroty URL: | ```https://github./com/JaBarosin/K8sConfigs.git```
+Credentials: | _none_
+Branches to build - Branch specifier: | ```*/CBC_Container_Demo```
+Repository Browser: | ```(Auto)```
+Script Path: | ```bad/Jenkinsfile```
 
   5. Click 'apply' & 'save
 
@@ -43,7 +45,7 @@ In order to get started, start by setting up your environment by following the [
 
   8. Select ```Build Now``` for the Job set to the _good_ job.
 
-  * View the slack notifiation.
+  * View the slack notifications.
   * Curl or navigate to <your-IP-address>:30333 and check to see the container webpage.
   * _Tip_: On your Jenkins host, open a new terminal tab and use the ```watch``` command to monitor microk8s.
     * Enter command: ```watch microk8s kubectl get all -n nodeapp``` (crtl+c = exit)
