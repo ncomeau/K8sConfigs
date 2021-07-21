@@ -1,10 +1,10 @@
 # CBC Container Demo artifacts
-This repo has several K8 configuration files and Jenkinsfile examples for demo and testing purposes.
 
-If you dont have a Jenkins demo environment,  follow the steps for setup within the [CBC_Container_CICD_Demo](https://github.com/ncomeau/CBC_Container_CICD_Demo) repo to get started!
+This deployment is intended to be imported, and work seamlessly, into the [CBC Container CI/CD Demo](https://github.com/ncomeau/CBC_Container_CICD_Demo) with minimal configuration. For more information regarding the process for importing this pipeline, please view the [K8Configs Main Branch Readme.md](https://github.com/JaBarosin/K8sConfigs/tree/main).
+
 
 **Bad**
-  - This Pipeline and deployment.yaml have a base configuration that violates CB Container policy rules
+  - Jenkinsfile and deployment.yaml that violate CB Container policy rules
 
 **Good**
-  - This Pipeline and deployment-v2.yaml are updted with additional configurations to satisfy CB Container policy rules
+  - Jenkinsfile and deployment-v2.yaml updated with additional configurations to satisfy CB Container policy rules
