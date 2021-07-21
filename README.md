@@ -6,5 +6,7 @@ This demos two Jenkins-K8s deployments. It is intended to be imported, and work 
 **Bad**
   - Jenkinsfile and deployment.yaml that violate CB Container policy rules
 
+  ![](img/bad-deployment.png)
+
 **Good**
   - Jenkinsfile and deployment-v2.yaml updated with additional configurations to satisfy CB Container policy rules
