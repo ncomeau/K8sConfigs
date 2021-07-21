@@ -36,6 +36,8 @@ node {
           if(violations == false) {
             echo "No violations occured - keen!"
             sh "python3 /var/jenkins_home/app/success.py '${env.JOB_NAME}' '${env.BUILD_NUMBER}'"
+            sh "python3 /var/jenkins_home/app/final_stage_success.py"
+
           }
 
           // If CBC K8s policy violations triggered; output those violations to Slack, end deployment pipeline to allow for rectifying of violations prior to prod deployment
