@@ -24,12 +24,12 @@ In order to get started, start by setting up your environment by following the [
 
 Pipeline config | Value
 --------------------- | ---------------------
-Pipeline Definition: | _Pipeline script from SCM_
-SCM: | _Git_
+Pipeline Definition: | 'Pipeline script from SCM'
+SCM: | 'Git'
 Repositories - Reposiroty URL: | ```https://github./com/JaBarosin/K8sConfigs.git```
 Credentials: | _none_
 Branches to build - Branch specifier: | ```*/CBC_Container_Demo```
-Repository Browser: | _(Auto)_
+Repository Browser: | '(Auto)''
 Script Path: | ```bad/Jenkinsfile```
 
   5. Click 'apply' & 'save
