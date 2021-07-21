@@ -10,3 +10,5 @@ This demos two Jenkins-K8s deployments. It is intended to be imported, and work 
 
 **Good**
   - Jenkinsfile and deployment-v2.yaml updated with additional configurations to satisfy CB Container policy rules
+
+  ![](img/good-deployment.png)
