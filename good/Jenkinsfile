@@ -91,9 +91,10 @@ node (k8) {
   stage ('Cleaning Up Image - After 1 min for Viewing'){
     container('kubectl') {
       echo "Navigate to <IP of your ubuntu machine>:5000 on your mac or localhost on your demo vm to see your static site!"
-      sleep 10
+      sleep 1
       
-      sh "kubectl delete pod static-site -n nodeapp"
+      //sh "kubectl delete pod static-site -n nodeapp"
+      sh "good/cleanup.sh"
       sh "kubectl get all -n nodeapp"
       // sh "kubectl drain ${k8}"
 
